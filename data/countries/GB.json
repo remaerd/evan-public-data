@@ -1,0 +1,114 @@
+[
+  {
+    "id": "coffee",
+    "display_name": "Coffee meetup",
+    "category_group": "social",
+    "min_age": 18,
+    "sort_order": 1
+  },
+  {
+    "id": "lunch",
+    "display_name": "Lunch together",
+    "category_group": "food",
+    "min_age": 18,
+    "sort_order": 1
+  },
+  {
+    "id": "dinner",
+    "display_name": "Dinner together",
+    "category_group": "food",
+    "min_age": 18,
+    "sort_order": 2
+  },
+  {
+    "id": "drinks",
+    "display_name": "Drinks at a pub or bar",
+    "category_group": "social",
+    "min_age": 18,
+    "sort_order": 2
+  },
+  {
+    "id": "walk",
+    "display_name": "Walk together",
+    "category_group": "outdoor",
+    "min_age": 18,
+    "sort_order": 1
+  },
+  {
+    "id": "hike",
+    "display_name": "Hiking",
+    "category_group": "outdoor",
+    "min_age": 18,
+    "sort_order": 2
+  },
+  {
+    "id": "gym",
+    "display_name": "Gym session",
+    "category_group": "active",
+    "min_age": 18,
+    "sort_order": 1
+  },
+  {
+    "id": "running",
+    "display_name": "Running together",
+    "category_group": "active",
+    "min_age": 18,
+    "sort_order": 2
+  },
+  {
+    "id": "cycling",
+    "display_name": "Cycling",
+    "category_group": "active",
+    "min_age": 18,
+    "sort_order": 3
+  },
+  {
+    "id": "cinema",
+    "display_name": "Cinema",
+    "category_group": "culture",
+    "min_age": 18,
+    "sort_order": 1
+  },
+  {
+    "id": "museum",
+    "display_name": "Museum or gallery",
+    "category_group": "culture",
+    "min_age": 18,
+    "sort_order": 2
+  },
+  {
+    "id": "concert",
+    "display_name": "Concert or live music",
+    "category_group": "culture",
+    "min_age": 18,
+    "sort_order": 3
+  },
+  {
+    "id": "volunteering",
+    "display_name": "Volunteering",
+    "category_group": "volunteering",
+    "min_age": 18,
+    "sort_order": 1
+  },
+  {
+    "id": "workshop",
+    "display_name": "Workshop or class",
+    "category_group": "creative",
+    "min_age": 18,
+    "sort_order": 1
+  },
+  {
+    "id": "getting_intimate",
+    "display_name": "Getting intimate",
+    "category_group": "social",
+    "min_age": 18,
+    "sort_order": 3
+  },
+  {
+    "id": "dating",
+    "display_name": "Dating",
+    "category_group": "social",
+    "min_age": 18,
+    "sort_order": 4
+  }
+]
