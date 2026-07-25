@@ -28,4 +28,6 @@ jobs:
           aws s3 sync . s3://evan-public-data-827306792223-ap-southeast-1-an \
             --delete \
             --exclude ".git/*" \
-            --exclude ".github/*"
+            --exclude ".github/*" \
+            --exclude "README.md" \
+            --exclude ".gitignore"
