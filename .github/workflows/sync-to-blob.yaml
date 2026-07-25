@@ -26,8 +26,8 @@ jobs:
         with:
           inlineScript: |
             az storage blob upload-batch \
-              --account-name "YOUR_STORAGE_ACCOUNT_NAME" \
-              --destination "YOUR_CONTAINER_NAME" \
+              --account-name "evanpublicdata.blob.core.windows.net" \
+              --destination "evan-public-data" \
               --source "." \
               --overwrite true \
               --auth-mode login
