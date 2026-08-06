@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evan.local/reference/schema.json",
+  "title": "FriendayPublicReference",
+  "description": "Structural reference data keyed by context. Activities are simple IDs; contexts are the primary index. Localized text lives in reference.EN.json / reference.ZH_CN.json (ADR-0055).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "defaultLanguage",
+    "languages",
+    "contexts",
+    "locationCategories",
+    "amenityActivityGrants"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 3 },
+    "defaultLanguage": { "type": "string", "pattern": "^[A-Za-z_]+$" },
+    "languages": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[A-Za-z_]+$" },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "contexts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "required": ["alone", "social_group", "friends", "family", "romantic", "adultOnly", "parentChild"]
+    },
+    "locationCategories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "isPublicVenue", "activityIds"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "isPublicVenue": { "type": "boolean" },
+          "sourceTags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "uniqueItems": true
+          },
+          "activityIds": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "amenityActivityGrants": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "minItems": 1,
+        "uniqueItems": true
+      }
+    }
+  }
+}

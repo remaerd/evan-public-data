@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evan.local/reference-language/schema.json",
+  "title": "FriendayPublicReferenceLanguage",
+  "description": "Localized display text for reference.json IDs (ADR-0055).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contexts", "activities", "locationCategories"],
+  "properties": {
+    "contexts": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "activities": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "locationCategories": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    }
+  }
+}
