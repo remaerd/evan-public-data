@@ -130,6 +130,7 @@
     "family": "Family",
     "romantic": "Romantic",
     "adultOnly": "Adults only",
-    "parentChild": "Parent & child"
+    "parentChild": "Parent & child",
+    "travel": "Travel"
   }
 }
