@@ -43,13 +43,17 @@ ts_context_entries = "\n".join(
     for ctx, ids in contexts.items()
 )
 ts_category_entries = "\n".join(
-    "  { id: %s, isPublicVenue: %s, sourceTags: %s, activityIds: %s },"
-    % (q(c["id"]), q(c["isPublicVenue"]), q(c.get("sourceTags", [])), q(c["activityIds"]))
+    "  { id: %s, isPublicVenue: %s, sourceTags: %s, group: %s, activityIds: %s },"
+    % (q(c["id"]), q(c["isPublicVenue"]), q(c.get("sourceTags", [])), q(c.get("group")), q(c["activityIds"]))
     for c in categories
 )
 ts_grant_entries = "\n".join(
     "  %s: %s," % (q(grant_id), q(activity_ids))
-    for grant_id, activity_ids in grants.items()
+for grant_id, activity_ids in grants.items()
+)
+ts_group_entries = "\n".join(
+    "  %s: %s," % (q(group_id), q(label))
+    for group_id, label in lang.get("locationCategoryGroups", {}).items()
 )
 
 ts_body = f"""{header}
@@ -61,6 +65,7 @@ export interface VenueCategory {{
   id: string;
   isPublicVenue: boolean;
   sourceTags: readonly string[];
+  group: string | null;
   activityIds: readonly string[];
 }}
 
@@ -70,6 +75,10 @@ export const VENUE_CATEGORIES: readonly VenueCategory[] = [
 
 export const AMENITY_ACTIVITY_GRANTS: Readonly<Record<string, readonly string[]>> = {{
 {ts_grant_entries}
+}};
+
+export const LOCATION_CATEGORY_GROUPS: Readonly<Record<string, string>> = {{
+{ts_group_entries}
 }};
 
 const SOURCE_TO_CATEGORY = new Map<string, string>(
@@ -131,13 +140,22 @@ dart_category_entries = "\n".join(
     "    names: %s,\n"
     "    isPublicVenue: %s,\n"
     "    sourceTags: %s,\n"
+    "    group: %s,\n"
     "    activityIds: %s,\n"
-    "  )," % (q(c["id"]), q({"en": lang["locationCategories"].get(c["id"], c["id"])}), q(c["isPublicVenue"]), q(c.get("sourceTags", [])), q(c["activityIds"]))
+    "  )," % (q(c["id"]), q({"en": lang["locationCategories"].get(c["id"], c["id"])}), q(c["isPublicVenue"]), q(c.get("sourceTags", [])), q(c.get("group")), q(c["activityIds"]))
     for c in categories
 )
 dart_grant_entries = "\n".join(
     "  %s: %s," % (q(grant_id), q(activity_ids))
-    for grant_id, activity_ids in grants.items()
+for grant_id, activity_ids in grants.items()
+)
+dart_group_entries = "\n".join(
+    "  %s: %s," % (q(group_id), q(label))
+    for group_id, label in lang.get("locationCategoryGroups", {}).items()
+)
+dart_group_by_id_entries = "\n".join(
+    "  %s: %s," % (q(c["id"]), q(c.get("group")))
+    for c in categories
 )
 
 dart_body = f"""{header}
@@ -146,6 +164,7 @@ class VenueCategory {{
   final Map<String, String> names;
   final bool isPublicVenue;
   final List<String> sourceTags;
+  final String? group;
   final List<String> activityIds;
 
   const VenueCategory({{
@@ -153,6 +172,7 @@ class VenueCategory {{
     required this.names,
     required this.isPublicVenue,
     required this.sourceTags,
+    required this.group,
     required this.activityIds,
   }});
 
@@ -165,6 +185,7 @@ class VenueCategory {{
       sourceTags: (json['sourceTags'] as List<dynamic>? ?? const [])
           .map((e) => e.toString())
           .toList(),
+      group: json['group'] as String?,
       activityIds: (json['activityIds'] as List<dynamic>? ?? const [])
           .map((e) => e.toString())
           .toList(),
@@ -190,6 +211,14 @@ const kVenueCategories = <VenueCategory>[
 
 const kAmenityActivityGrants = <String, List<String>>{{
 {dart_grant_entries}
+}};
+
+const kLocationCategoryGroups = <String, String>{{
+{dart_group_entries}
+}};
+
+const kVenueCategoryGroupById = <String, String?>{{
+{dart_group_by_id_entries}
 }};
 
 String? activityDisplayName(String activityId, {{String language = 'en'}}) {{

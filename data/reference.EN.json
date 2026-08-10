@@ -95,6 +95,7 @@
     "games_hall": "Games hall / arcade",
     "library": "Library",
     "community_centre": "Community centre",
+    "church": "Church",
     "market": "Market",
     "shopping_centre": "Shopping centre",
     "home": "Home",
@@ -122,6 +123,13 @@
     "aquarium": "Aquarium",
     "amusement_park": "Amusement park",
     "science_centre": "Science centre"
+  },
+  "locationCategoryGroups": {
+    "shops": "Shops",
+    "nature": "Nature",
+    "sport_venues": "Sport Venues",
+    "arts": "Arts",
+    "communities": "Communities"
   },
   "contexts": {
     "alone": "Alone",

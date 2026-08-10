@@ -46,6 +46,7 @@
             "items": { "type": "string" },
             "uniqueItems": true
           },
+          "group": { "type": "string", "pattern": "^[a-z0-9-]+$" },
           "activityIds": {
             "type": "array",
             "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },

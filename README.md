@@ -27,7 +27,8 @@ Activities are simple IDs. **`contexts` is the primary index**: it maps who is j
     "romantic": ["coffee", "dinner", "walk", "dating"]
   },
   "locationCategories": [
-    {"id": "park", "isPublicVenue": true, "sourceTags": ["park", "garden"], "activityIds": ["walk", "picnic", "parade"]}
+    {"id": "park", "isPublicVenue": true, "sourceTags": ["park", "garden"], "activityIds": ["walk", "picnic", "parade"]},
+    {"id": "shopping_centre", "isPublicVenue": true, "sourceTags": ["shopping_mall"], "group": "shops", "activityIds": ["shopping", "coffee", "food_tour", "sightseeing"]}
   ],
   "amenityActivityGrants": {
     "cafe": ["coffee", "brunch", "lunch"]
@@ -45,6 +46,7 @@ Activities are simple IDs. **`contexts` is the primary index**: it maps who is j
 - `sort_order` is not needed; ordering is driven by context.
 - `min_age` is not part of the reference schema; age is handled app-wide.
 - `locationCategories` are the canonical location types (public venues plus Home, Workplace, Institution) and their compatible activity IDs.
+- Optional `group` on a location category merges fine-grained categories into one user-facing section: `shops`, `nature`, `sport_venues`, `arts`, `communities`. The IDs and `sourceTags` stay fine-grained for ingestion; consumers use `locationCategoryGroups` for the merged display name.
 - `amenityActivityGrants` add activities a venue can support based on detected amenities (e.g. a museum with a cafeteria gains `coffee`).
 
 ## reference.EN.json / reference.ZH_CN.json
@@ -54,8 +56,15 @@ Localized display text is keyed by the same IDs:
 ```json
 {
   "contexts": { "friends": "Friends", "romantic": "Romantic" },
-  "activities": { "coffee": "Coffee meetup", "picnic": "Picnic in the park" },
-  "locationCategories": { "park": "Park & open space" }
+  "activities": { "coffee": "Coffee", "picnic": "Picnic in the park" },
+  "locationCategories": { "park": "Park & open space", "church": "Church" },
+  "locationCategoryGroups": {
+    "shops": "Shops",
+    "nature": "Nature",
+    "sport_venues": "Sport Venues",
+    "arts": "Arts",
+    "communities": "Communities"
+  }
 }
 ```
 
@@ -66,3 +75,16 @@ Localized display text is keyed by the same IDs:
 - **Frontend** (`evan_frontend_mobile`) uses `contexts` first for activity suggestions, then intersects with the selected location category and amenity grants.
 - **Fallback:** `python3 scripts/generate_snapshots.py` regenerates the bundled TS/Dart fallback snapshots; they are resilience caches only.
 - Changing data here takes effect on the next backend re-ingestion/revalidation and the next frontend fetch — no consumer code release is required.
+
+## Testing policy
+
+English (`reference.EN.json`) and Chinese (`reference.ZH_CN.json`) are the
+product-owned source-of-truth languages: their wording is maintained directly
+and is **not** locked by unit tests. Any other language is a
+translation-accuracy contract with exact-value tests. See
+[`TRANSLATIONS.md`](TRANSLATIONS.md) and
+[`tests/README.md`](tests/README.md).
+
+```bash
+python3 -m unittest discover -s tests -v
+```

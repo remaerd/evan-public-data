@@ -95,6 +95,7 @@
     "games_hall": "游戏厅/街机厅",
     "library": "图书馆",
     "community_centre": "社区中心",
+    "church": "教堂",
     "market": "市集",
     "shopping_centre": "购物中心",
     "home": "家",
@@ -122,6 +123,13 @@
     "aquarium": "水族馆",
     "amusement_park": "游乐园",
     "science_centre": "科学中心"
+  },
+  "locationCategoryGroups": {
+    "shops": "商店",
+    "nature": "大自然",
+    "sport_venues": "运动场馆",
+    "arts": "艺术",
+    "communities": "社区"
   },
   "contexts": {
     "alone": "独自一人",

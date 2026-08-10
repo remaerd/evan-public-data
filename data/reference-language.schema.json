@@ -18,6 +18,10 @@
     "locationCategories": {
       "type": "object",
       "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "locationCategoryGroups": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
     }
   }
 }
