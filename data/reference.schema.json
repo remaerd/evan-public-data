@@ -56,6 +56,14 @@
         }
       }
     },
+    "locationCategoryIcons": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "locationCategoryGroupIcons": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
     "amenityActivityGrants": {
       "type": "object",
       "additionalProperties": {

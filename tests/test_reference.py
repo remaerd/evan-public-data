@@ -88,6 +88,25 @@ class TestReferenceStructural(unittest.TestCase):
         }
         self.assertTrue(groups.issubset(GROUP_IDS), groups - GROUP_IDS)
 
+    def test_icons_are_complete_and_well_formed(self):
+        category_icons = self.ref.get('locationCategoryIcons', {})
+        group_icons = self.ref.get('locationCategoryGroupIcons', {})
+        for c in self.ref['locationCategories']:
+            self.assertTrue(
+                category_icons.get(c['id'], '').strip(),
+                f'category {c["id"]} has no icon key',
+            )
+        groups = {
+            c['group'] for c in self.ref['locationCategories'] if c.get('group')
+        }
+        for group in groups:
+            self.assertTrue(
+                group_icons.get(group, '').strip(),
+                f'group {group} has no icon key',
+            )
+        for key in [*category_icons.values(), *group_icons.values()]:
+            self.assertRegex(key, r'^[a-z0-9_]+$', key)
+
 
 class TestLocaleFiles(unittest.TestCase):
     @classmethod

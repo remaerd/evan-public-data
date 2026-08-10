@@ -47,6 +47,7 @@ Activities are simple IDs. **`contexts` is the primary index**: it maps who is j
 - `min_age` is not part of the reference schema; age is handled app-wide.
 - `locationCategories` are the canonical location types (public venues plus Home, Workplace, Institution) and their compatible activity IDs.
 - Optional `group` on a location category merges fine-grained categories into one user-facing section: `shops`, `nature`, `sport_venues`, `arts`, `communities`. The IDs and `sourceTags` stay fine-grained for ingestion; consumers use `locationCategoryGroups` for the merged display name.
+- `locationCategoryIcons` / `locationCategoryGroupIcons` map each category/group to a Material icon key (e.g. `shopping_bag`, `forest`, `church`). The frontend keeps only a small key→glyph table; which key applies to which venue/group is data-driven, so new venues adapt without code changes.
 - `amenityActivityGrants` add activities a venue can support based on detected amenities (e.g. a museum with a cafeteria gains `coffee`).
 
 ## reference.EN.json / reference.ZH_CN.json

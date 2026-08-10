@@ -55,6 +55,14 @@ ts_group_entries = "\n".join(
     "  %s: %s," % (q(group_id), q(label))
     for group_id, label in lang.get("locationCategoryGroups", {}).items()
 )
+ts_category_icon_entries = "\n".join(
+    "  %s: %s," % (q(category_id), q(icon))
+    for category_id, icon in ref.get("locationCategoryIcons", {}).items()
+)
+ts_group_icon_entries = "\n".join(
+    "  %s: %s," % (q(group_id), q(icon))
+    for group_id, icon in ref.get("locationCategoryGroupIcons", {}).items()
+)
 
 ts_body = f"""{header}
 export const CONTEXTS: Readonly<Record<string, readonly string[]>> = {{
@@ -79,6 +87,14 @@ export const AMENITY_ACTIVITY_GRANTS: Readonly<Record<string, readonly string[]>
 
 export const LOCATION_CATEGORY_GROUPS: Readonly<Record<string, string>> = {{
 {ts_group_entries}
+}};
+
+export const VENUE_CATEGORY_ICONS: Readonly<Record<string, string>> = {{
+{ts_category_icon_entries}
+}};
+
+export const LOCATION_CATEGORY_GROUP_ICONS: Readonly<Record<string, string>> = {{
+{ts_group_icon_entries}
 }};
 
 const SOURCE_TO_CATEGORY = new Map<string, string>(
@@ -153,9 +169,13 @@ dart_group_entries = "\n".join(
     "  %s: %s," % (q(group_id), q(label))
     for group_id, label in lang.get("locationCategoryGroups", {}).items()
 )
-dart_group_by_id_entries = "\n".join(
-    "  %s: %s," % (q(c["id"]), q(c.get("group")))
-    for c in categories
+dart_category_icon_entries = "\n".join(
+    "  %s: %s," % (q(category_id), q(icon))
+    for category_id, icon in ref.get("locationCategoryIcons", {}).items()
+)
+dart_group_icon_entries = "\n".join(
+    "  %s: %s," % (q(group_id), q(icon))
+    for group_id, icon in ref.get("locationCategoryGroupIcons", {}).items()
 )
 
 dart_body = f"""{header}
@@ -217,8 +237,12 @@ const kLocationCategoryGroups = <String, String>{{
 {dart_group_entries}
 }};
 
-const kVenueCategoryGroupById = <String, String?>{{
-{dart_group_by_id_entries}
+const kVenueCategoryIcons = <String, String>{{
+{dart_category_icon_entries}
+}};
+
+const kLocationCategoryGroupIcons = <String, String>{{
+{dart_group_icon_entries}
 }};
 
 String? activityDisplayName(String activityId, {{String language = 'en'}}) {{
