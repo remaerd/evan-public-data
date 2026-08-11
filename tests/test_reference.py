@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / 'data'
 
 OWNED_LANGUAGES = {'EN', 'ZH_CN'}
-GROUP_IDS = {'shops', 'nature', 'sport_venues', 'arts', 'communities'}
+GROUP_IDS = {'shops', 'nature', 'sport_venues', 'arts', 'communities', 'nightlife'}
 
 
 def load_json(name):

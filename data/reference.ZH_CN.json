@@ -26,6 +26,13 @@
     "meetup": "參加社群聚会",
     "watching_matches": "看比赛",
     "nail_polishing": "美甲",
+    "fishing": "钓鱼",
+    "poker_night": "扑克之夜",
+    "spa_day": "水疗日",
+    "salon_visit": "美发沙龙",
+    "dance_class": "舞蹈课",
+    "barber_visit": "理发店",
+    "makeup_workshop": "化妆工作坊",
     "shopping": "购物",
     "climbing": "攀岩",
     "bowling": "玩保龄球",
@@ -129,7 +136,8 @@
     "nature": "大自然",
     "sport_venues": "运动场馆",
     "arts": "艺术",
-    "communities": "社区"
+    "communities": "社区",
+    "nightlife": "夜生活"
   },
   "contexts": {
     "alone": "独自一人",

@@ -26,6 +26,13 @@
     "meetup": "Community meetup",
     "watching_matches": "Watching matches",
     "nail_polishing": "Nail polishing",
+    "fishing": "Fishing",
+    "poker_night": "Poker night",
+    "spa_day": "Spa day",
+    "salon_visit": "Salon visit",
+    "dance_class": "Dance class",
+    "barber_visit": "Barber visit",
+    "makeup_workshop": "Makeup workshop",
     "shopping": "Shopping",
     "climbing": "Climbing session",
     "bowling": "Bowling",
@@ -129,7 +136,8 @@
     "nature": "Nature",
     "sport_venues": "Sport Venues",
     "arts": "Arts",
-    "communities": "Communities"
+    "communities": "Communities",
+    "nightlife": "Nightlife"
   },
   "contexts": {
     "alone": "Alone",
