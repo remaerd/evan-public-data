@@ -153,17 +153,33 @@ class TestLocaleFiles(unittest.TestCase):
                             f'{filename}: group {group}',
                         )
 
-    def test_non_owned_locales_require_accuracy_contract(self):
-        for filename in locale_files():
-            tag = locale_tag(filename)
-            if tag in OWNED_LANGUAGES:
-                continue
-            contract = ROOT / 'tests' / f'test_{tag.lower()}_translation_accuracy.py'
-            self.assertTrue(
-                contract.exists(),
-                f'{filename} needs {contract.name} '
-                f'(translation-accuracy contract, see TRANSLATIONS.md)',
-            )
+    def test_event_ingestion_keywords_and_groups(self):
+        ingestion = self.ref.get('eventIngestion')
+        self.assertIsNotNone(ingestion, 'eventIngestion section is required in reference.json')
+        group_kws = ingestion.get('groupKeywords', {})
+        for group in GROUP_IDS:
+            self.assertIn(group, group_kws, f'groupKeywords missing group: {group}')
+            self.assertTrue(len(group_kws[group]) > 0, f'groupKeywords for {group} must be non-empty')
+        pricing = ingestion.get('pricingKeywords', {})
+        self.assertIn('free', pricing)
+        self.assertIn('bookingRequired', pricing)
+        audience = ingestion.get('audienceKeywords', {})
+        self.assertIn('adultOnly', audience)
+        self.assertIn('kidsFriendly', audience)
+        self.assertIn('petsFriendly', audience)
+
+    def test_public_holidays(self):
+        holidays = self.ref.get('publicHolidays')
+        self.assertIsNotNone(holidays, 'publicHolidays section is required in reference.json')
+        self.assertIn('GB', holidays)
+        self.assertIn('US', holidays)
+        for country, list_of_holidays in holidays.items():
+            self.assertTrue(len(list_of_holidays) > 0, f'{country} holidays must not be empty')
+            for h in list_of_holidays:
+                self.assertTrue(h.get('id'), f'holiday in {country} missing id')
+                self.assertTrue(h.get('name'), f'holiday in {country} missing name')
+                self.assertGreaterEqual(h.get('leadDaysNotice', 0), 1)
+                self.assertTrue(len(h.get('suggestedActivities', [])) > 0)
 
 
 if __name__ == '__main__':

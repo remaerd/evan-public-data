@@ -19,19 +19,19 @@
     {"id": "pub", "isPublicVenue": true, "sourceTags": ["pub"], "group": "nightlife", "activityIds": ["drinks", "pub_quiz", "lunch", "dinner", "watching_matches", "poker_night"]},
     {"id": "nightclub", "isPublicVenue": true, "sourceTags": ["nightclub"], "group": "nightlife", "activityIds": ["nightlife", "drinks", "concert"]},
     {"id": "park", "isPublicVenue": true, "sourceTags": ["park", "garden"], "activityIds": ["walk", "hike", "picnic", "parade", "running", "sports", "volunteering", "sightseeing", "wellness"]},
-    {"id": "arts_centre", "isPublicVenue": true, "sourceTags": ["arts_centre"], "group": "arts", "activityIds": ["workshop", "theatre", "concert", "museum", "sightseeing", "dance_class", "makeup_workshop"]},
-    {"id": "cinema", "isPublicVenue": true, "sourceTags": ["cinema"], "group": "arts", "activityIds": ["cinema"]},
-    {"id": "theatre", "isPublicVenue": true, "sourceTags": ["theatre"], "group": "arts", "activityIds": ["theatre", "concert"]},
-    {"id": "concert_hall", "isPublicVenue": true, "sourceTags": ["concert_hall", "music_venue"], "group": "arts", "activityIds": ["concert", "theatre"]},
-    {"id": "museum", "isPublicVenue": true, "sourceTags": ["museum"], "activityIds": ["museum", "learning", "workshop", "sightseeing"]},
-    {"id": "gallery", "isPublicVenue": true, "sourceTags": ["gallery", "art_gallery"], "activityIds": ["museum", "workshop", "sightseeing"]},
-    {"id": "attraction", "isPublicVenue": true, "sourceTags": ["attraction", "tourist_attraction", "aquarium", "zoo", "viewpoint"], "activityIds": ["sightseeing", "walk", "picnic", "learning", "food_tour"]},
-    {"id": "sports_centre", "isPublicVenue": true, "sourceTags": ["sports_centre", "sports", "fitness_centre", "stadium"], "group": "sport_venues", "activityIds": ["sports", "gym", "running", "cycling", "bowling", "watching_matches"]},
-    {"id": "climbing_gym", "isPublicVenue": true, "sourceTags": ["climbing_gym"], "group": "sport_venues", "activityIds": ["climbing"]},
-    {"id": "bowling_alley", "isPublicVenue": true, "sourceTags": ["bowling_alley"], "group": "sport_venues", "activityIds": ["bowling", "sports"]},
-    {"id": "games_hall", "isPublicVenue": true, "sourceTags": ["games_hall", "amusement_arcade"], "activityIds": ["board_games", "pub_quiz", "bowling", "poker_night"]},
-    {"id": "library", "isPublicVenue": true, "sourceTags": ["library"], "activityIds": ["reading", "learning", "workshop"]},
-    {"id": "community_centre", "isPublicVenue": true, "sourceTags": ["community_centre"], "group": "communities", "activityIds": ["meetup", "workshop", "volunteering", "learning", "poker_night", "dance_class", "makeup_workshop"]},
+    {"id": "arts_centre", "isPublicVenue": true, "sourceTags": ["arts_centre"], "group": "arts", "activityIds": ["workshop", "theatre", "concert", "museum", "sightseeing", "dance_class", "makeup_workshop"], "ingestionKeywords": ["workshop", "exhibition", "performance", "theatre", "dance", "screening", "life drawing", "arts"], "ingestionSourceTypes": ["venue_website", "ical", "api", "feed"]},
+    {"id": "cinema", "isPublicVenue": true, "sourceTags": ["cinema"], "group": "arts", "activityIds": ["cinema"], "ingestionKeywords": ["screening", "film", "movie", "premiere", "festival", "qa", "documentary"], "ingestionSourceTypes": ["venue_website", "api", "feed"]},
+    {"id": "theatre", "isPublicVenue": true, "sourceTags": ["theatre"], "group": "arts", "activityIds": ["theatre", "concert"], "ingestionKeywords": ["play", "performance", "show", "musical", "drama", "comedy", "stage"], "ingestionSourceTypes": ["venue_website", "ical", "api", "feed"]},
+    {"id": "concert_hall", "isPublicVenue": true, "sourceTags": ["concert_hall", "music_venue"], "group": "arts", "activityIds": ["concert", "theatre"], "ingestionKeywords": ["concert", "live music", "gig", "recital", "orchestra", "tour", "band"], "ingestionSourceTypes": ["venue_website", "ical", "api", "feed"]},
+    {"id": "museum", "isPublicVenue": true, "sourceTags": ["museum"], "activityIds": ["museum", "learning", "workshop", "sightseeing"], "ingestionKeywords": ["exhibition", "collection", "gallery", "guided tour", "curator talk", "workshop", "lecture", "opening", "late night", "family day"], "ingestionSourceTypes": ["venue_website", "ical", "api", "feed"]},
+    {"id": "gallery", "isPublicVenue": true, "sourceTags": ["gallery", "art_gallery"], "activityIds": ["museum", "workshop", "sightseeing"], "ingestionKeywords": ["exhibition", "vernissage", "private view", "artist talk", "opening", "show", "curator"], "ingestionSourceTypes": ["venue_website", "ical", "api", "feed"]},
+    {"id": "attraction", "isPublicVenue": true, "sourceTags": ["attraction", "tourist_attraction", "aquarium", "zoo", "viewpoint"], "activityIds": ["sightseeing", "walk", "picnic", "learning", "food_tour"], "ingestionKeywords": ["tour", "special event", "experience", "talk", "night visit"], "ingestionSourceTypes": ["venue_website", "api", "feed"]},
+    {"id": "sports_centre", "isPublicVenue": true, "sourceTags": ["sports_centre", "sports", "fitness_centre", "stadium"], "group": "sport_venues", "activityIds": ["sports", "gym", "running", "cycling", "bowling", "watching_matches"], "ingestionKeywords": ["tournament", "match", "session", "class", "competition", "league"], "ingestionSourceTypes": ["venue_website", "ical", "api", "feed"]},
+    {"id": "climbing_gym", "isPublicVenue": true, "sourceTags": ["climbing_gym"], "group": "sport_venues", "activityIds": ["climbing"], "ingestionKeywords": ["social climb", "bouldering comp", "competition", "workshop", "induction"], "ingestionSourceTypes": ["venue_website", "feed"]},
+    {"id": "bowling_alley", "isPublicVenue": true, "sourceTags": ["bowling_alley"], "group": "sport_venues", "activityIds": ["bowling", "sports"], "ingestionKeywords": ["league", "tournament", "tournament night", "party"], "ingestionSourceTypes": ["venue_website", "feed"]},
+    {"id": "games_hall", "isPublicVenue": true, "sourceTags": ["games_hall", "amusement_arcade"], "activityIds": ["board_games", "pub_quiz", "bowling", "poker_night"], "ingestionKeywords": ["board game night", "tournament", "card game", "game meetup", "quiz"], "ingestionSourceTypes": ["venue_website", "ical", "feed"]},
+    {"id": "library", "isPublicVenue": true, "sourceTags": ["library"], "activityIds": ["reading", "learning", "workshop"], "ingestionKeywords": ["book club", "story time", "author talk", "workshop", "reading session"], "ingestionSourceTypes": ["venue_website", "ical", "feed"]},
+    {"id": "community_centre", "isPublicVenue": true, "sourceTags": ["community_centre"], "group": "communities", "activityIds": ["meetup", "workshop", "volunteering", "learning", "poker_night", "dance_class", "makeup_workshop"], "ingestionKeywords": ["workshop", "class", "group meeting", "community meetup", "dance class", "volunteering", "gathering"], "ingestionSourceTypes": ["venue_website", "ical", "api", "feed"]},
     {"id": "church", "isPublicVenue": true, "sourceTags": ["church", "place_of_worship", "chapel", "cathedral"], "group": "communities", "activityIds": ["meetup", "volunteering", "learning", "workshop", "concert", "sightseeing"]},
     {"id": "market", "isPublicVenue": true, "sourceTags": ["marketplace", "market"], "group": "shops", "activityIds": ["shopping", "food_tour", "coffee", "lunch", "sightseeing"]},
     {"id": "shopping_centre", "isPublicVenue": true, "sourceTags": ["shopping_mall"], "group": "shops", "activityIds": ["shopping", "coffee", "food_tour", "sightseeing"]},
@@ -167,5 +167,126 @@
     "nature_trail": ["forest_walk", "hike", "birdwatching", "nature_photography"],
     "viewpoint": ["sightseeing", "stargazing", "nature_photography"],
     "picnic_area": ["picnic", "walk", "lake_picnic"]
+  },
+  "eventIngestion": {
+    "groupKeywords": {
+      "arts": ["exhibition", "gallery", "screening", "film", "premiere", "play", "performance", "concert", "live music", "gig", "show", "tour", "talk", "lecture", "workshop", "masterclass", "life drawing", "curator", "vernissage"],
+      "communities": ["workshop", "meetup", "class", "reading", "book club", "story time", "volunteering", "group", "board games", "quiz", "session", "gathering"],
+      "nightlife": ["pub quiz", "trivia", "dj set", "club night", "live music", "comedy", "open mic", "tasting", "happy hour", "social"],
+      "sport_venues": ["match", "tournament", "session", "social climb", "bouldering", "league", "game night", "workout", "competition"],
+      "shops": ["market", "fair", "signing", "book launch", "flea market", "pop-up", "tasting", "launch"],
+      "nature": ["guided walk", "nature tour", "birdwatching", "stargazing", "beach clean", "picnic", "festival", "trail"]
+    },
+    "pricingKeywords": {
+      "free": ["free", "free entry", "no charge", "complimentary", "admission free", "free admission", "free booking", "0.00", "£0", "$0", "€0"],
+      "bookingRequired": ["book now", "tickets", "rsvp", "reserve", "registration required", "advance booking", "register", "admission ticket", "buy tickets", "book online"]
+    },
+    "audienceKeywords": {
+      "adultOnly": ["18+", "21+", "adults only", "adult only", "over 18", "strictly 18+", "mature audience"],
+      "kidsFriendly": ["kids friendly", "family friendly", "all ages", "children welcome", "kids activities", "family day", "under 12"],
+      "petsFriendly": ["dog friendly", "dogs welcome", "pets welcome", "pets allowed", "dog allowed"]
+    }
+  },
+  "publicHolidays": {
+    "GB": [
+      {
+        "id": "gb-new-years-day",
+        "name": "New Year's Day",
+        "month": 1,
+        "day": 1,
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["brunch", "drinks", "walk", "movie_night"]
+      },
+      {
+        "id": "gb-good-friday",
+        "name": "Good Friday",
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["brunch", "walk", "picnic", "lunch"]
+      },
+      {
+        "id": "gb-easter-monday",
+        "name": "Easter Monday",
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["picnic", "sightseeing", "nature_photography", "walk"]
+      },
+      {
+        "id": "gb-early-may-bank-holiday",
+        "name": "Early May Bank Holiday",
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["picnic", "hike", "drinks", "pub_quiz"]
+      },
+      {
+        "id": "gb-spring-bank-holiday",
+        "name": "Spring Bank Holiday",
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["camping", "beach_day", "picnic", "walk"]
+      },
+      {
+        "id": "gb-summer-bank-holiday",
+        "name": "Summer Bank Holiday",
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["beach_day", "picnic", "drinks", "nightlife"]
+      },
+      {
+        "id": "gb-christmas-day",
+        "name": "Christmas Day",
+        "month": 12,
+        "day": 25,
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["dinner", "board_games", "movie_night", "cooking"]
+      },
+      {
+        "id": "gb-boxing-day",
+        "name": "Boxing Day",
+        "month": 12,
+        "day": 26,
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["walk", "watching_matches", "shopping", "board_games"]
+      }
+    ],
+    "US": [
+      {
+        "id": "us-new-years-day",
+        "name": "New Year's Day",
+        "month": 1,
+        "day": 1,
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["brunch", "drinks", "walk", "movie_night"]
+      },
+      {
+        "id": "us-memorial-day",
+        "name": "Memorial Day",
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["picnic", "camping", "beach_day", "dinner"]
+      },
+      {
+        "id": "us-independence-day",
+        "name": "Independence Day",
+        "month": 7,
+        "day": 4,
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["picnic", "parade", "drinks", "nightlife", "stargazing"]
+      },
+      {
+        "id": "us-labor-day",
+        "name": "Labor Day",
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["camping", "beach_day", "picnic", "hike"]
+      },
+      {
+        "id": "us-thanksgiving",
+        "name": "Thanksgiving",
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["dinner", "cooking", "board_games", "watching_matches"]
+      },
+      {
+        "id": "us-christmas-day",
+        "name": "Christmas Day",
+        "month": 12,
+        "day": 25,
+        "leadDaysNotice": 7,
+        "suggestedActivities": ["dinner", "board_games", "movie_night", "cooking"]
+      }
+    ]
   }
 }

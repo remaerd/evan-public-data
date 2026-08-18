@@ -52,6 +52,16 @@
             "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
             "minItems": 1,
             "uniqueItems": true
+          },
+          "ingestionKeywords": {
+            "type": "array",
+            "items": { "type": "string" },
+            "uniqueItems": true
+          },
+          "ingestionSourceTypes": {
+            "type": "array",
+            "items": { "type": "string" },
+            "uniqueItems": true
           }
         }
       }
@@ -71,6 +81,75 @@
         "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
         "minItems": 1,
         "uniqueItems": true
+      }
+    },
+    "eventIngestion": {
+      "type": "object",
+      "properties": {
+        "groupKeywords": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" },
+            "uniqueItems": true
+          }
+        },
+        "pricingKeywords": {
+          "type": "object",
+          "properties": {
+            "free": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "bookingRequired": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            }
+          }
+        },
+        "audienceKeywords": {
+          "type": "object",
+          "properties": {
+            "adultOnly": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "kidsFriendly": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "petsFriendly": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            }
+          }
+        }
+      }
+    },
+    "publicHolidays": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["id", "name", "leadDaysNotice", "suggestedActivities"],
+          "properties": {
+            "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+            "name": { "type": "string" },
+            "month": { "type": "integer", "minimum": 1, "maximum": 12 },
+            "day": { "type": "integer", "minimum": 1, "maximum": 31 },
+            "leadDaysNotice": { "type": "integer", "minimum": 1 },
+            "suggestedActivities": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
       }
     }
   }
